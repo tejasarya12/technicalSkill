@@ -1,5 +1,5 @@
 
-package technical;
+
 
 public class Constructor {
 	String col;
