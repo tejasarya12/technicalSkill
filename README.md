@@ -1,2 +1,2 @@
 # technicalSkill
-java full stack skill development training.
+JAVA full stack skill development training.
