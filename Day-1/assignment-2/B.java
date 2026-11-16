@@ -1,5 +1,4 @@
 
-package oops;
 
 public interface B {
 	
