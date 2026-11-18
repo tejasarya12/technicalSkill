@@ -1,0 +1,12 @@
+h5{
+    color: darkmagenta;background-color: dodgerblue;
+            font-size: x-large;
+            font-style: oblique;
+            text-decoration: wavy;color:red;
+            text-decoration-color: chartreuse;
+            text-underline-offset: 5px;
+            border: 3px green dotted;
+            border-style:inset;
+            cursor: pointer;
+            text-align:center;
+}
