@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Portfolio</title>
+  <style>
+    :root {
+      --bg: #f6f6f2;
+      --surface: #ffffff;
+      --surface-muted: #ecece6;
+      --ink: #111111;
+      --muted: #555550;
+      --border: #181818;
+      --border-light: #cfcfc8;
+      --accent: #c8ff1a;
+      --accent-hover: #b8ef0a;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      padding: 20px 16px 64px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Top Status / Banner Box */
+    .top-banner {
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      padding: 10px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border: 1px solid var(--border);
+      margin-right: 6px;
+    }
+
+    /* Header & Pure CSS Navigation */
+    header {
+      margin-bottom: 32px;
+    }
+
+    .site-brand {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .site-sub {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-bar a {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      letter-spacing: 0.03em;
+      transition: background-color 0.15s ease;
+    }
+
+    .nav-bar a:hover {
+      background-color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 5vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      background-color: var(--accent);
+      padding: 0 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      color: #222222;
+      max-width: 56ch;
+    }
+
+    /* Empty Photo Placeholder */
+    .photo-slot {
+      width: 140px;
+      height: 165px;
+      border: 1.5px dashed var(--border);
+      background-color: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 0;
+      margin: 22px 0 18px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      gap: 8px 16px;
+    }
+
+    .meta-strip span {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .meta-strip strong {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      flex: 1 1 240px;
+      text-align: center;
+      background-color: var(--accent);
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      flex: 1 1 180px;
+      text-align: center;
+      background-color: var(--surface);
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface-muted);
+    }
+
+    .micro-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Section Cards (Matches Reference Framed Modules) */
+    .module-card {
+      border: 1.5px solid var(--border);
+      background-color: var(--surface);
+      padding: 22px 20px;
+      margin-bottom: 26px;
+    }
+
+    .module-index {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .module-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Sub-panels & Info Strips */
+    .callout-strip {
+      background-color: var(--surface-muted);
+      border-left: 3px solid var(--border);
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+      margin: 14px 0;
+    }
+
+    .accent-strip {
+      background-color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      margin: 16px 0;
+    }
+
+    /* Tables (Reference Benchmark Table Aesthetic) */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+
+    tr.row-highlight {
+      background-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Experience & Education Grid */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .sub-box {
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      background-color: var(--bg);
+    }
+
+    .sub-box-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .sub-box-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .sub-box-detail {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Case Studies */
+    .case-study {
+      border: 1px solid var(--border);
+      padding: 16px;
+      margin-bottom: 16px;
+      background-color: var(--bg);
+    }
+
+    .case-study:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .case-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .case-title {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .case-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--accent);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .case-visual-slot {
+      border: 1px dashed var(--border);
+      background: var(--surface);
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .case-specs {
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .case-specs p strong {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: inline-block;
+      min-width: 95px;
+    }
+
+    /* Social Proof / Testimonials */
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .quote-box {
+      border: 1px solid var(--border);
+      padding: 14px;
+      background: var(--bg);
+    }
+
+    .quote-text {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .quote-author {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .logo-item {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 10px 8px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Contact Form */
+    .form-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 13px;
+      border-radius: 0;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid var(--accent);
+      background-color: var(--surface);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background-color: var(--accent);
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .social-links a {
+      flex: 1 1 140px;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 8px 10px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 620px) {
+      .hero-grid,
+      .two-col,
+      .quote-grid,
+      .form-row,
+      .meta-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-slot {
+        width: 100%;
+        height: 150px;
+      }
+
+      .logo-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top Notice Box -->
+    <div class="top-banner">
+      <span><span class="status-dot"></span>Available for select projects &amp; full-time roles</span>
+      <span>Location: Your City, Country</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="site-brand">Your Name</div>
+      <div class="site-sub">Your Primary Role / Engineering &amp; Design Specialty</div>
+      <nav class="nav-bar" aria-label="Primary Navigation">
+        <a href="#about">01 / About</a>
+        <a href="#work">02 / Work</a>
+        <a href="#services">03 / Services</a>
+        <a href="#proof">04 / Proof</a>
+        <a href="#contact">05 / Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+      <div class="eyebrow">Portfolio &amp; Case Index — 2026</div>
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">
+            Your Name builds <span class="highlight">fast, reliable products.</span>
+          </h1>
+          <p class="hero-lead">
+            Your concise value proposition goes here. Explain in two clear sentences what problems you solve, who you build for, and why your technical or design approach delivers measurable impact.
+          </p>
+        </div>
+
+        <!-- Empty Photo Space -->
+        <div class="photo-slot" aria-label="Empty photo placeholder">
+          <span>[ Photo Space ]</span>
+          <span>Keep Empty</span>
+        </div>
+      </div>
+
+      <div class="meta-strip">
+        <span><span>Email</span> <strong>your.email@domain.com</strong></span>
+        <span><span>Education</span> <strong>Your Degree / Your College</strong></span>
+        <span><span>Experience</span> <strong>X+ Years / Production</strong></span>
+        <span><span>Focus</span> <strong>Your Core Specialty</strong></span>
+      </div>
+
+      <div class="cta-row">
+        <a href="#work" class="btn-primary">&rarr; View Selected Work</a>
+        <a href="#contact" class="btn-secondary">Book a Call / Say Hi</a>
+      </div>
+      <p class="micro-note">Direct inbox response within 24 hours. No automated middlemen.</p>
+    </section>
+
+    <!-- 01 / About & Skills -->
+    <section class="module-card" id="about">
+      <div class="module-index">01 / Profile &amp; Stack</div>
+      <h2 class="module-title">About, Education &amp; Core Capabilities</h2>
+
+      <p>
+        Write a concise, grounded bio here. Share how you approach engineering, product architecture, or interface design, emphasizing clarity, maintainability, and real-world performance over unnecessary complexity.
+      </p>
+
+      <div class="two-col">
+        <div class="sub-box">
+          <div class="sub-box-label">Education</div>
+          <div class="sub-box-title">Your Degree Name</div>
+          <div class="sub-box-detail">Your College / University Name &bull; Graduation Year</div>
+        </div>
+        <div class="sub-box">
+          <div class="sub-box-label">Latest Experience</div>
+          <div class="sub-box-title">Your Role @ Company Name</div>
+          <div class="sub-box-detail">Start Year – Present &bull; Key Domain</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Tools &amp; Technologies</th>
+              <th>Proficiency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-highlight">
+              <td>Primary Stack</td>
+              <td>Your Core Language, Framework, Tool 1, Tool 2</td>
+              <td>Production</td>
+            </tr>
+            <tr>
+              <td>Systems &amp; Data</td>
+              <td>Database, Cloud Provider, CI/CD, APIs</td>
+              <td>Advanced</td>
+            </tr>
+            <tr>
+              <td>Design &amp; Workflow</td>
+              <td>Figma, Prototyping, Testing, Documentation</td>
+              <td>Daily Use</td>
+            </tr>
+            <tr>
+              <td>Previous Role</td>
+              <td>Previous Title @ Previous Org (Year–Year)</td>
+              <td>Verified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a href="your-resume.pdf" download class="btn-secondary" style="width: 100%; display: block;">
+        &darr; Download Résumé / CV (PDF)
+      </a>
+    </section>
+
+    <!-- 02 / Featured Work & Case Studies -->
+    <section class="module-card" id="work">
+      <div class="module-index">02 / Selected Output</div>
+      <h2 class="module-title">Featured Work &amp; Case Studies</h2>
+
+      <!-- Case Study 1 -->
+      <article class="case-study">
+        <div class="case-header">
+          <h3 class="case-title">01. Project Title One</h3>
+          <span class="case-tag">Outcome: +42% Metric</span>
+        </div>
+        <div class="case-visual-slot">[ Project Screenshot / Architecture Diagram Space ]</div>
+        <div class="case-specs">
+          <p><strong>Problem:</strong> Describe the bottleneck, user pain point, or system limitation that needed solving.</p>
+          <p><strong>Process:</strong> Summarize your research, architecture choices, trade-offs, and execution steps.</p>
+          <p><strong>Your Role:</strong> Lead Developer / Sole Designer / End-to-End Owner.</p>
+          <p><strong>Outcome:</strong> Quantifiable result (e.g., reduced latency from 800ms to 95ms, adopted by 10k users).</p>
+        </div>
+      </article>
+
+      <!-- Case Study 2 -->
+      <article class="case-study">
+        <div class="case-header">
+          <h3 class="case-title">02. Project Title Two</h3>
+          <span class="case-tag">Outcome: 3x Faster</span>
+        </div>
+        <div class="case-visual-slot">[ Project Interface / Demo Visual Space ]</div>
+        <div class="case-specs">
+          <p><strong>Problem:</strong> Explain what was broken, slow, or missing in the existing workflow.</p>
+          <p><strong>Process:</strong> Detail how you prototyped, tested with users, and shipped the solution.</p>
+          <p><strong>Your Role:</strong> Core Contributor / Frontend &amp; Systems Architect.</p>
+          <p><strong>Outcome:</strong> Measurable business or technical improvement backed by real numbers.</p>
+        </div>
+      </article>
+
+      <!-- Case Study 3 -->
+      <article class="case-study">
+        <div class="case-header">
+          <h3 class="case-title">03. Project Title Three</h3>
+          <span class="case-tag">Open Source / Live</span>
+        </div>
+        <div class="case-visual-slot">[ Project Preview / Benchmark Space ]</div>
+        <div class="case-specs">
+          <p><strong>Problem:</strong> State the technical challenge or niche gap this tool addresses.</p>
+          <p><strong>Process:</strong> Explain the stack, constraints, and iteration cycles.</p>
+          <p><strong>Your Role:</strong> Creator &amp; Maintainer.</p>
+          <p><strong>Outcome:</strong> Stars, downloads, revenue saved, or deployment scale.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 03 / Services & Offerings -->
+    <section class="module-card" id="services">
+      <div class="module-index">03 / Freelance &amp; Advisory</div>
+      <h2 class="module-title">Services &amp; Engagement Models</h2>
+
+      <div class="accent-strip">
+        Currently accepting 1–2 freelance or consulting engagements for the upcoming quarter.
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Offering</th>
+              <th>Best For</th>
+              <th>Starting Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MVP &amp; Web App Build</strong><br />End-to-end design and production code</td>
+              <td>Early-stage founders &amp; teams</td>
+              <td>From $X,XXX / project</td>
+            </tr>
+            <tr>
+              <td><strong>Performance &amp; UI Audit</strong><br />Speed, accessibility, and code cleanup</td>
+              <td>Existing SaaS &amp; web products</td>
+              <td>From $XXX / sprint</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Advisory</strong><br />Architecture review &amp; prototyping</td>
+              <td>Product leads &amp; startups</td>
+              <td>$XX / hour</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-strip">
+        <strong>Inquiry Expectations:</strong> Send a short brief with your goals, rough timeline, and budget range. You will receive a clear scope breakdown within 1 business day.
+      </div>
+    </section>
+
+    <!-- 04 / Social Proof -->
+    <section class="module-card" id="proof">
+      <div class="module-index">04 / Verification</div>
+      <h2 class="module-title">Testimonials, Recognition &amp; Partners</h2>
+
+      <div class="quote-grid">
+        <div class="quote-box">
+          <p class="quote-text">
+            “Your Name delivered clean, well-documented work ahead of schedule and simplified our entire deployment workflow.”
+          </p>
+          <div class="quote-author">— Client Name, Role at Company One</div>
+        </div>
+        <div class="quote-box">
+          <p class="quote-text">
+            “Rare combination of sharp technical judgment and clear communication. Would hire again without hesitation.”
+          </p>
+          <div class="quote-author">— Manager Name, Lead at Company Two</div>
+        </div>
+      </div>
+
+      <div class="callout-strip">
+        <strong>Awards &amp; Mentions:</strong> Hackathon Winner (Year) &bull; Featured on Publication Name &bull; Speaker at Local Meetup
+      </div>
+
+      <div class="logo-strip" aria-label="Organizations and Clients">
+        <div class="logo-item">Company 01</div>
+        <div class="logo-item">Company 02</div>
+        <div class="logo-item">Your College</div>
+        <div class="logo-item">Partner 04</div>
+      </div>
+    </section>
+
+    <!-- 05 / Contact & Links -->
+    <section class="module-card" id="contact">
+      <div class="module-index">05 / Direct Channel</div>
+      <h2 class="module-title">Contact &amp; Profiles</h2>
+
+      <p>
+        Prefer direct email? Write to <strong>your.email@domain.com</strong> or use the form below to start a conversation.
+      </p>
+
+      <form class="form-grid" action="mailto:your.email@domain.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div>
+            <label for="sender-name">Your Name</label>
+            <input type="text" id="sender-name" name="name" placeholder="Jane Doe" required />
+          </div>
+          <div>
+            <label for="sender-email">Your Email</label>
+            <input type="email" id="sender-email" name="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="inquiry-type">Topic</label>
+          <select id="inquiry-type" name="topic">
+            <option value="project">New Freelance Project</option>
+            <option value="role">Full-Time / Internship Role</option>
+            <option value="consulting">Consulting / Audit</option>
+            <option value="other">General Hello</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message">Project Details / Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Share your timeline, goals, or role details..." required></textarea>
+        </div>
+
+        <button type="submit">&rarr; Send Message via Email Client</button>
+      </form>
+
+      <div class="social-links">
+        <a href="mailto:your.email@domain.com">Email</a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/yourusername" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Your Name &bull; Built with Pure HTML &amp; CSS &bull; Zero JavaScript
+    </footer>
+
+  </div>
+</body>
+</html>
