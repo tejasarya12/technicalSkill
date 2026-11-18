@@ -8,7 +8,7 @@
     :root {
       --bg-white: #ffffff;
       --bg-offwhite: #fafafa;
-      --bg-pink: #ff8fb8;
+      --bg-pink: #cfecf7;
       --bg-dark: #18181b;
       --border-dark: #18181b;
       --border-light: #e4e4e7;
@@ -47,8 +47,8 @@
     .top-atmosphere {
       position: relative;
       background:
-        radial-gradient(circle at 12% 20%, rgba(255, 65, 165, 0.58) 0%, rgba(255, 65, 165, 0) 42%),
-        radial-gradient(circle at 88% 30%, rgba(255, 45, 155, 0.62) 0%, rgba(255, 45, 155, 0) 45%),
+        radial-gradient(circle at 12% 20%, rgba(207,236,247, 0.9) 0%, rgba(255, 65, 165, 0) 42%),
+        radial-gradient(circle at 88% 30%, rgba(207,236,247, 0.80) 0%, rgba(255, 45, 155, 0) 45%),
         linear-gradient(180deg, #fce7f3 0%, #ffffff 100%);
       padding: 18px 20px 56px;
       border-bottom: 1px solid var(--border-light);
@@ -684,7 +684,7 @@
   <header class="top-atmosphere">
     <nav class="nav-bar">
       <div class="nav-pill">
-        <a href="#top">your-name.dev</a>
+        <a href="#top">tejas-arya.dev</a>
       </div>
       <div class="nav-pill">
         <a href="#about">About</a>
@@ -700,7 +700,7 @@
     <!-- Terminal Status Card -->
     <div class="status-window">
       <div class="status-window-header">
-        <span><span class="status-dot"></span>status — your-name.dev</span>
+        <span><span class="status-dot"></span>status — tejas-arya.dev</span>
         <span>v2026.1</span>
       </div>
       <div class="status-window-body">
@@ -713,10 +713,10 @@
   <!-- 1. HERO SECTION -->
   <section id="top" class="hero-section">
     <div class="hero-kicker">
-      <span>Your Role / Specialty</span>
-      <span>Your Location</span>
+      <span>JAVA Developer / Springboot</span>
+      <span>Bangalore</span>
     </div>
-    <h1 class="hero-title">Your Name</h1>
+    <h1 class="hero-title">Tejas Arya</h1>
     <p class="hero-subtitle">
       Your value proposition goes here—concisely stating what you build, who you help, and the measurable impact your engineering or design work delivers.
     </p>
@@ -745,7 +745,7 @@
           <div class="spec-rows">
             <div class="spec-row">
               <span class="spec-key">name</span>
-              <span class="spec-val"><strong>Your Name</strong></span>
+              <span class="spec-val"><strong>Tejas Arya</strong></span>
             </div>
             <div class="spec-row">
               <span class="spec-key">bio</span>
@@ -800,7 +800,7 @@
         <div class="code-pane">
           <span class="code-comment">// Quick summary object</span><br />
           <span class="code-keyword">const</span> profile = {<br />
-          &nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-string">"Your Name"</span>,<br />
+          &nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-string">tejas-arya</span>,<br />
           &nbsp;&nbsp;<span class="code-prop">college</span>: <span class="code-string">"Your College Name"</span>,<br />
           &nbsp;&nbsp;<span class="code-prop">degree</span>: <span class="code-string">"Your Education / Degree"</span>,<br />
           &nbsp;&nbsp;<span class="code-prop">email</span>: <span class="code-string">"youremail@domain.com"</span><br />
