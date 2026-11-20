@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Functions</title>
+</head>
+<body>
+
+    <h1 id="heading">Hello World</h1>
+
+    <p class="para">This is first paragraph</p>
+    <p class="para">This is second paragraph</p>
+
+    <h2>JavaScript DOM</h2>
+    <h2>DOM Functions</h2>
+
+    <button onclick="fun1()">getElementById</button>
+    <button onclick="fun2()">getElementsByClassName</button>
+    <button onclick="fun3()">getElementsByTagName</button>
+    <button onclick="fun4()">querySelector</button>
+    <button onclick="fun5()">querySelectorAll</button>
+
+    <script>
+
+        function fun1()
+        {
+            document.getElementById("heading").innerHTML = "Welcome";
+        }
+
+        function fun2()
+        {
+            document.getElementsByClassName("para")[0].style.color = "red";
+        }
+
+        function fun3()
+        {
+            document.getElementsByTagName("h2")[0].style.color = "blue";
+        }
+
+        function fun4()
+        {
+            document.querySelector(".para").style.backgroundColor = "yellow";
+        }
+
+        function fun5()
+        {
+            let x = document.querySelectorAll(".para");
+
+            for(let i=0; i<x.length; i++)
+            {
+                x[i].style.fontSize = "25px";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
