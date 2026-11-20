@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+</head>
+<body>
+
+    <h1>Billing System</h1>
+
+    <script>
+        let total = 0;
+
+        for(;;)
+        {
+            let choice = Number(prompt("1. Add Item\n2. View Bill\n3. Exit"));
+
+            switch(choice)
+            {
+                case 1:
+                    let name = prompt("Enter item name");
+                    let price = Number(prompt("Enter item price"));
+                    let quantity = Number(prompt("Enter quantity"));
+
+                    let amount = price * quantity;
+
+                    total = total + amount;
+
+                    alert("Item: " + name + "\nAmount: " + amount);
+                    break;
+
+                case 2:
+                    alert("Total Bill = " + total);
+                    break;
+
+                case 3:
+                    alert("Thank You!\nFinal Bill = " + total);
+                    break;
+
+                default:
+                    alert("Invalid Choice");
+            }
+
+            if(choice == 3)
+            {
+                break;
+            }
+        }
+    </script>
+
+</body>
+</html>
